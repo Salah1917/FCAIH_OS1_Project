@@ -1,0 +1,33 @@
+User Manager Manual
+
+Add User:
+Asks admin to enter username to create a user using "useradd username" command.
+2. Delete User:
+Asks admin to enter username to delete a user using "userdel username" command.
+3. Add Group:
+Asks admin to enter group name to create a group using "groupadd groupname" command.
+4. Delete Group:
+Asks admin to enter group name to delete a group using "groupdel groupname" command.
+
+5. Change User Info:
+Change the Name of a User:
+Asks admin to enter the name of a user and a new name to update his/her name using "usermod -l salah2 salah" command.
+Change Home Directory of a User:
+Asks admin to enter user name and group name to change the user's directory using the "usermod -d directory username" command.
+
+6. Change Account Info:
+Set Password Expiration for a User:
+Asks admin to enter the username and desired expiry date of a password for a specific user using "chage -E expirydate username" command.
+View current Password Agging Information:
+Asks admin to enter the user name of a user to view current password agging information of a specific user using "chage -l username" command.
+
+7. Assign User to Group:
+Assign User to Existing Group:
+Asks admin for user name and group name to add the user to that group using "useradd username -g groupname" command.
+Create new user and assign him/her to a group:
+Asks admin for user name and group name to add the user to that group using "usermod -G username groupname" command.
+Delete user from a specific group:
+Asks admin to enter both username and group name to delete user from a selected group using "usermod -G username groupname" command.
+
+8. Exit:
+Enter 0 to exit the manager.
