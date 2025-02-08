@@ -1,0 +1,181 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    
+    while (1)
+    {
+        
+        int c,ch,ch2,ch3;
+        char username[100], groupname[100], nusername[100];
+        char com[200], homedir[100],date[10];
+        char ua[] = "useradd ",ud[] = "userdel ",ga[] = "groupadd ",gd[] = "groupdel ",
+        gra[] = " -g ",gra2[] = "usermod -G ",gra3[] = "deluser ", chun[] = "usermod -l ",
+        chhd[] = "usermod -d ", setpw[]= "chage -E ",viewpw[]= "chage -l ";
+        printf("1. Add User\n2. Delete User\n3. Add Group\n4. Delete Group\n5. Change User Info\n6. Change Account Info\n7. Assign User to Group\n8. Exit\nEnter Your Choice: ");
+        scanf("%d", &c);
+        
+        switch (c)
+        {
+            case 1:
+                printf("Enter the name of the user you want to add: ");
+                scanf("%s", username);
+                strcpy(com, ua);
+                strcat(com, username); // Concatenate username to com
+                //system(com);
+                printf("%s\n%s was added\n",com,username);
+                break;
+    
+            case 2:
+                printf("Enter the name of the user you want to delete: ");
+                scanf("%s", username);
+                strcpy(com, ud);
+                strcat(com, username); // Concatenate username to com
+                //system(com);
+                printf("%s\n%s was deleted\n",com,username);
+                break;
+    
+            case 3:
+                printf("Enter the name of the group you want to add: ");
+                scanf("%s", groupname);
+                strcpy(com, ga);
+                strcat(com, groupname); // Concatenate username to com
+                //system(com);
+                printf("%s\n%s was added\n",com,groupname);
+                break;
+    
+            case 4:
+                printf("Enter the name of the group you want to delete: ");
+                scanf("%s", groupname);
+                strcpy(com, gd);
+                strcat(com, groupname); // Concatenate username to com
+                //system(com);
+                printf("%s\n%s was deleted\n",com,groupname);
+                break;
+    
+            case 5:
+                printf("1.Change the Name of a User.\n2.Change Home Directory of a User.\n");
+                scanf("%d",&ch3);
+                switch(ch3)
+                {
+                    case 1:
+                    printf("Enter the user you want to edit: ");
+                    scanf("%s",username);
+                    printf("Enter the new username: ");
+                    scanf("%s",nusername);
+                    strcpy(com, chun);
+                    strcat(com, nusername);
+                    strcat(com, " ");
+                    strcat(com, username);
+                    printf("%s\n",com);
+                    //system(com);
+                    
+                    break;
+                    
+                    case 2:
+                    printf("Enter the user you want to edit: ");
+                    scanf("%s",username);
+                    printf("Enter the new directory: ");
+                    scanf("%s",homedir);
+                    strcpy(com, chhd);
+                    strcat(com, homedir);
+                    strcat(com, " ");
+                    strcat(com, username);
+                    printf("%s\n",com);
+                    //system(com);
+                    
+                    
+                    break;
+                    
+                    default: printf("Enter Correct Numbers.");
+                }
+                break;
+    
+            case 6:
+                printf("1.Set Password Expiration for a User.\n2.View current Password Agging Information.\n");
+                scanf("%d",&ch2);
+                switch(ch2)
+                {
+                    case 1:
+                    printf("Enter the user's username: ");
+                    scanf("%s",username);
+                    printf("Enter the date(YYYY-MM-DD): ");
+                    scanf("%s",date);
+                    strcpy(com,setpw);
+                    strcat(com, date);
+                    strcat(com, " ");
+                    strcat(com, username);
+                    printf("%s\n",com);
+                    //system(com);
+                    
+                    break;
+                    
+                    case 2:
+                    printf("Enter the user's username: ");
+                    scanf("%s",username);
+                    strcpy(com,viewpw);
+                    strcat(com, username);
+                    printf("%s\n",com);
+                    //system(com);
+                    break;
+                    
+                    default: printf("Enter Correct Numbers");
+                }
+                break;
+    
+            case 7:
+                
+                printf("1.Assign User to Existing Group.\n2.Create new user and assign him/her to a group.\n3.Delete user from a specific group\n");
+                scanf("%d",&ch);
+                switch(ch)
+                {
+                    case 1:
+                        printf("Enter the name of the user: ");
+                        scanf("%s",username);
+                        printf("Enter the name of the group: ");
+                        scanf("%s", groupname);
+                        strcpy(com, ua);
+                        strcat(com, username);
+                        strcat(com, gra);
+                        strcat(com, groupname);
+                        printf("%s\n",com);
+                        //system(com);
+                    
+                    case 2:
+                        printf("Enter the name of the user you want to add: ");
+                        scanf("%s",username);
+                        printf("Enter the name of the group you want to add %s to: ",username);
+                        scanf("%s", groupname);
+                        strcpy(com, gra2);
+                        strcat(com, username);
+                        strcat(com, " ");
+                        strcat(com, groupname);
+                        printf("%s\n",com);
+                        //system(com);
+                        
+                    case 3:
+                        printf("Enter the name of the User you want to remove from a group: ");
+                        scanf("%s",username);
+                        printf("Enter the name of the Group you want to remove %s from: ",username);
+                        scanf("%s", groupname);
+                        strcpy(com, gra3);
+                        strcat(com, username);
+                        strcat(com, " ");
+                        strcat(com, groupname);
+                        printf("%s\n",com);
+                        //system(com);
+                        break;
+        
+                    default: printf("Enter a Correct Number\n");
+            }
+            case 8:
+                exit(0);
+            default:
+                printf("\nEnter Correct Numbers\n");
+            }
+    }
+
+    return 0;
+}
